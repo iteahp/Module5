@@ -1,0 +1,91 @@
+<div class="container">
+  <h2>Anh Gai Xinh</h2>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">
+    Create
+  </button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Img</th>
+      <th colspan="2">Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let c of listStudent">
+      <td>{{c.id}}</td>
+      <td>{{c.name}}</td>
+      <td><img src="{{c.img}}" alt="" width="200" height="300"></td>
+      <button type="button" class="btn btn-danger" (click)="delete(c.id)" >
+        Delete
+      </button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit" (click)="showEdit(c)">
+        Edit
+      </button>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="modalCreate">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <input [(ngModel)]="student.id"><br>
+        <input [(ngModel)]="student.name"><br>
+        <input [(ngModel)]="student.img"><br>
+        <button type="button" class="btn btn-primary" (click)="create()" >
+          Create
+        </button>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal" id="modalEdit">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <input [(ngModel)]="student.id"><br>
+        <input [(ngModel)]="student.name"><br>
+        <input [(ngModel)]="student.img"><br>
+        <button type="button" class="btn btn-primary" (click)="create()" >
+          Edit
+        </button>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
