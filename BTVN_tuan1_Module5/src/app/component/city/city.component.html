@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Danh sách thành phố</h2>
+  <p>Sau đây sẽ là danh sách các thành phố</p>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Dân Số</th>
+      <th>Dân Số</th>
+      <th colspan="2">Acion</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of cites">
+      <td>{{c.id}}</td>
+      <td>{{c.name}}</td>
+      <td>{{c.danSo}} triệu</td>
+      <td>{{c.quocGia.tenQuocGia}}</td>
+      <td><button (click)="delete(c.id)">Delete</button></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>

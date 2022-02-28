@@ -1,0 +1,76 @@
+<div class="jumbotron text-center">
+  <h1>App Show Student</h1>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">
+    Create
+  </button>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let st of studentList">
+      <h3>{{st.id}}</h3>
+      <img src="{{st.img}}" alt="" width="200" height="300">
+      <p>{{st.name}}</p>
+      <button type="button" class="btn btn-danger" (click)="deleteInShowApp(st.id)" >
+        Delete
+      </button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEditInShow" (click)="showEditInShow(st)">
+        Edit
+      </button>
+    </div>
+  </div>
+</div>
+<div class="modal" id="modalCreate">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <input [(ngModel)]="studentShow.id"><br>
+        <input [(ngModel)]="studentShow.name"><br>
+        <input [(ngModel)]="studentShow.img"><br>
+        <button type="button" class="btn btn-primary" (click)="createInShowApp()" >
+          Edit
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal" id="modalEditInShow">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <input [(ngModel)]="studentShow.id"><br>
+        <input [(ngModel)]="studentShow.name"><br>
+        <input [(ngModel)]="studentShow.img"><br>
+        <button type="button" class="btn btn-primary" (click)="createInShowApp()" >
+          Edit
+        </button>`
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>

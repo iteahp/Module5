@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Student} from "./student";
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,7 @@ export class AppComponent {
         check = false;
       }
     }
-    if (check = true){
+    if (check === true){
       this.listStudent.push(new Student(this.student.id,this.student.name,this.student.img))
     }
 
@@ -38,15 +39,8 @@ export class AppComponent {
   showEdit(student:Student){
     this.student = new Student(student.id,student.name,student.img)
   }
+
+
 }
 
-class Student{
-  id:number = 0;
-  name:string = '';
-  img:string = '';
-  constructor(id:number,name:string,img:string) {
-    this.id= id;
-    this.name = name;
-    this.img = img;
-  }
-}
+

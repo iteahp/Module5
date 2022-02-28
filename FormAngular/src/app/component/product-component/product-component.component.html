@@ -1,0 +1,114 @@
+<!--modal create-->
+<div class="container">
+  <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">
+    Create
+  </button>
+
+  <!-- The Modal -->
+  <div class="modal" id="modalCreate">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form (ngSubmit)="create()" [formGroup]="formCreate" >
+            nhập id
+            <input formControlName="id" placeholder="Nhập ID"><br><br>
+
+            nhập Name
+            <input formControlName="name" placeholder="Nhập Name" ><br><br>
+            <p *ngIf="!formCreate!.get('name')?.valid" style="color:red"> Không nhập quá 6 ký tự</p>
+            nhập IMG
+            <input formControlName="img"><br><br>
+            <p *ngIf="!formCreate!.get('img')?.valid" style="color:red"> Không được để trống</p>
+            nhập status
+            <input formControlName="status"><br><br>
+            <p *ngIf="!formCreate!.get('status')?.valid" style="color:red"> Không được để trống</p>
+              <button type="submit" class="btn btn-primary"> Create</button>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="formCreate.reset()">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+<table border="1px solid">
+
+
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Img</th>
+    <th>Status</th>
+  </tr>
+  <tr *ngFor="let p of productList">
+    <td>{{p.id}}</td>
+    <td>{{p.name}}</td>
+    <td> <img src="{{p.img}}" alt="" width="300" height="200"></td>
+    <td>{{p.status}}</td>
+    <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEdit" (click)="showEdit(p)">
+      Edit
+    </button></td>
+  </tr>
+
+</table>
+
+<!--Modal Edit-->
+<div class="modal" id="modalEdit">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form (ngSubmit)="create()" [formGroup]="formCreate" >
+          nhập id
+          <input formControlName="id"><br><br>
+
+          nhập Name
+          <input formControlName="name"><br><br>
+          <p *ngIf="!formCreate!.get('name')?.valid" style="color:red"> Không nhập quá 6 ký tự</p>
+          nhập IMG
+          <input formControlName="img"><br><br>
+          <p *ngIf="!formCreate!.get('img')?.valid" style="color:red"> Không được để trống</p>
+          nhập status
+          <input formControlName="status"><br><br>
+          <p *ngIf="!formCreate!.get('status')?.valid" style="color:red"> Không được để trống</p>
+          <button type="submit" class="btn btn-primary" [disabled] = "!formCreate.valid"> Edit</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="formCreate.reset()">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
