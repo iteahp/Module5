@@ -12,11 +12,10 @@ import {Router} from "@angular/router";
 export class CityComponent implements OnInit {
   cites:City[]=[];
   constructor(private  http:HttpClient,private router:Router) {
-
+     this.getCites()
   }
 
   ngOnInit(): void {
-    this.getCites()
   }
   getCites(){
     this.http.get<City[]>("http://localhost:8080/cities").subscribe((data)=>{
@@ -25,10 +24,12 @@ export class CityComponent implements OnInit {
     })
   }
   delete(id:number){
-    this.http.delete(`http://localhost:8080/cities/${id}`).subscribe((data)=>{
+    if ( confirm("Bạn đã chắc chắn chưa")){
+      this.http.delete(`http://localhost:8080/cities/${id}`).subscribe((data)=>{
         this.getCites()
-    })
-    this.getCites()
+      })
+      this.getCites()
+    }
   }
 
 }

@@ -8,13 +8,15 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { CreateCityComponent } from './component/create-city/create-city.component';
 import { DetailCityComponent } from './component/detail-city/detail-city.component';
+import { EditCityComponent } from './component/edit-city/edit-city.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CityComponent,
     CreateCityComponent,
-    DetailCityComponent
+    DetailCityComponent,
+    EditCityComponent
   ],
   imports: [
     BrowserModule,

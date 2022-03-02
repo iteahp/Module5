@@ -1,0 +1,30 @@
+<p>edit-city works!</p>
+
+<a href="" routerLink="/" >Home</a><br>
+<h1>Edit City</h1>
+<form (ngSubmit)="edit()" [formGroup]="formEdit" >
+  <!--  nhập id-->
+  <!--  <input formControlName="id" placeholder="Nhập ID"><br><br>-->
+
+  nhập Name
+  <input formControlName="name" placeholder="Nhập Name" ><br><br>
+  <p *ngIf="!formEdit!.get('name')?.valid" style="color:red"> Không nhập quá 6 ký tự</p>
+  nhập dan so
+  <input formControlName="danSo"><br><br>
+  <p *ngIf="!formEdit!.get('danSo')?.valid" style="color:red"> Không được để trống</p>
+  nhập dien tich
+  <input formControlName="dienTich"><br><br>
+  <p *ngIf="!formEdit!.get('dienTich')?.valid" style="color:red"> Không được để trống</p>
+  nhap gdp
+  <input formControlName="gdp"><br><br>
+  <p *ngIf="!formEdit!.get('gdp')?.valid" style="color:red"> Không được để trống</p>
+  nhap gioi thieu
+  <input formControlName="gioiThieu"><br><br>
+  <p *ngIf="!formEdit!.get('gioiThieu')?.valid" style="color:red"> Không được để trống</p>
+  Chon quoc gia
+  <select formControlName="quocGia">
+    <option *ngFor="let q of listQuocGIa" [ngValue]="q" >{{q.tenQuocGia}}</option>
+  </select>
+  <br>
+  <button type="submit" [disabled]="!formEdit.valid" > Create</button>
+</form>
