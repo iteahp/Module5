@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CityService} from "../../service/city.service";
 import {City} from "../../model/city";
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-city',
@@ -10,7 +11,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class CityComponent implements OnInit {
   cites:City[]=[];
-  constructor(private  http:HttpClient) {
+  constructor(private  http:HttpClient,private router:Router) {
 
   }
 
@@ -25,7 +26,7 @@ export class CityComponent implements OnInit {
   }
   delete(id:number){
     this.http.delete(`http://localhost:8080/cities/${id}`).subscribe((data)=>{
-
+        this.getCites()
     })
     this.getCites()
   }

@@ -13,4 +13,8 @@ export class CityService {
  }
   constructor(private  http:HttpClient
   ) { }
+
+  findById(id:number):Observable<City>{
+   return this.http.get<City>("http://localhost:8080/cities/"+id)
+  }
 }
