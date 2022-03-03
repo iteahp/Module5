@@ -26,8 +26,11 @@ export class DeleteBookComponent implements OnInit {
     })
   }
   delete(){
-    this.bookService.deleteBook(this.id).subscribe((data)=>{
-      alert("Xóa Thành Công")
-    })
+    if (confirm("Bạn có chắc chắn muốn xóa không")){
+      this.bookService.deleteBook(this.id).subscribe((data)=>{
+        alert("Xóa Thành Công")
+      })
+    }
+
   }
 }
