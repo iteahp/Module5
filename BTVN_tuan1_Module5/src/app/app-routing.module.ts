@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {CreateCityComponent} from "./component/create-city/create-city.component";
-import {CityComponent} from "./component/city/city.component";
-import {DetailCityComponent} from "./component/detail-city/detail-city.component";
-import {EditCityComponent} from "./component/edit-city/edit-city.component";
+import {CreateBookComponent} from "./create-book/create-book.component";
+import {ShowBooksComponent} from "./show-books/show-books.component";
+import {EditBookComponent} from "./edit-book/edit-book.component";
+import {DetailBookComponent} from "./detail-book/detail-book.component";
+import {DeleteBookComponent} from "./delete-book/delete-book.component";
 
 const routes: Routes = [
-  {path: 'create',component:CreateCityComponent},
-  {path: '',component:CityComponent},
-  {path: 'detail/:id' ,component:DetailCityComponent},
-  {path: 'edit/:id' ,component:EditCityComponent}
+  {path: 'create',component:CreateBookComponent},
+  {path: '',component:ShowBooksComponent},
+  {path: 'detail/:id' ,component:DetailBookComponent},
+  {path: 'edit/:id' ,component:EditBookComponent},
+  {path: 'delete/:id' ,component:DeleteBookComponent}
 ];
 
 @NgModule({

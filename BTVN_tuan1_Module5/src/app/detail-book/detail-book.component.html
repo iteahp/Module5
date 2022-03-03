@@ -1,0 +1,25 @@
+<p>detail-book works!</p>
+<h1><a routerLink="/">Xem Danh Sách</a></h1>
+<h1>Thông Tin CHi Tiết</h1>
+<div class="container">
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Tên Sách</th>
+      <th>Tác Giả</th>
+      <th colspan="2">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.description}}</td>
+      <td><a routerLink="/edit/{{book.id}}">Edit</a></td>
+      <td><a routerLink="/delete/{{book.id}}">Delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

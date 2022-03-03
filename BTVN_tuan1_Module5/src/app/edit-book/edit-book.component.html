@@ -1,0 +1,18 @@
+<a href="" routerLink="/" >Home</a><br>
+<h1>Edit</h1>
+<form (ngSubmit)="edit()" [formGroup]="formEdit" >
+  <!--  nhập id-->
+  <!--  <input formControlName="id" placeholder="Nhập ID"><br><br>-->
+
+  nhập Tên Sách
+  <input formControlName="title" placeholder="Nhập Name" ><br><br>
+  <p *ngIf="!formEdit!.get('title')?.valid" style="color:red"> Không nhập quá 6 ký tự</p>
+  nhập Tác Giả
+  <input formControlName="author"><br><br>
+  <p *ngIf="!formEdit!.get('author')?.valid" style="color:red"> Không được để trống</p>
+  nhập Mô tả
+  <input formControlName="description"><br><br>
+  <p *ngIf="!formEdit!.get('description')?.valid" style="color:red"> Không được để trống</p>
+  <br>
+  <button type="submit" [disabled]="!formEdit.valid" class="btn btn-warning"> Edit</button>
+</form>

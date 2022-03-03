@@ -1,0 +1,18 @@
+<p>delete-book works!</p>
+
+<h1><a routerLink="/">Xem Danh Sách</a></h1>
+<h1>Xóa Sách</h1>
+<div class="container">
+
+  <table class="table table-striped">
+
+    <tbody>
+
+      <tr><td>Tên sách</td><td>{{book.title}}</td></tr>
+      <tr><td>Tác Giả</td><td>{{book.author}}</td></tr>
+      <tr><td>Mô tả</td><td>{{book.description}}</td></tr>
+
+      <tr><button type="button" (click)="delete()" class="btn btn-danger">Delete</button></tr>
+    </tbody>
+  </table>
+</div>
